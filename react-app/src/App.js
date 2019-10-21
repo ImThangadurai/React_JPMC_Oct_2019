@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import Hello from './components/Hello';
 import Counter from './components/Counter';
+import ListCustomers from './components/ListCustomers';
 
 
 function App() {
@@ -30,8 +31,10 @@ function App() {
         <p>This is an inner element</p>
       </Hello> */}
 
-      <Counter title="Count" value="10"/>
-      <Counter title="Test" value="0"/>
+      {/* <Counter title="Count" value="10"/>
+      <Counter title="Test" value="0"/> */}
+
+      <ListCustomers/>
 
     </div>
   );
