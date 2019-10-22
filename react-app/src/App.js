@@ -4,6 +4,7 @@ import './App.css';
 import Hello from './components/Hello';
 import Counter from './components/Counter';
 import ListCustomers from './components/ListCustomers';
+import WikiSearch from './components/WikiSearch';
 
 
 function App() {
@@ -34,7 +35,10 @@ function App() {
       {/* <Counter title="Count" value="10"/>
       <Counter title="Test" value="0"/> */}
 
-      <ListCustomers/>
+      {/* <ListCustomers/> */}
+
+      <WikiSearch/>
+      <Hello message="Hello World"/>
 
     </div>
   );

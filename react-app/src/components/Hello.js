@@ -1,4 +1,5 @@
 import React from 'react';
+import simpleHOC from './SimpleHOC';
 
 
 const hello = (props) => {
@@ -18,4 +19,4 @@ const hello = (props) => {
     );
 }
 
-export default hello;
+export default simpleHOC(hello);
