@@ -1,12 +1,13 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import { Customer } from '../model/Customer';
+import './ListCustomers.css';
 
-class ListCustomers extends Component{
+class ListCustomers extends Component {
 
     state = {
         data: []
     }
-    constructor(props){
+    constructor(props) {
         super(props);
 
         //Initialize Data
@@ -16,20 +17,27 @@ class ListCustomers extends Component{
         this.state.data.push(new Customer(4, "Microsoft", "Bangalore"));
     }
 
-    render(){
+    renderCustomers = () => {
+
+        return this.state.data.map((item, index) => {
+            return (
+                <div key={item.id} className='customer'>
+                    <p>ID: {item.id}</p>
+                    <p>Name: {item.name}</p>
+                    <p>Location: {item.location}</p>
+                </div>
+            );
+        })
+    }
+
+    render() {
         return (
-             <div>
-                 <h2>Customers</h2>
-                 {this.state.data.map((item, index) => {
-                     return (
-                         <div>
-                             <p>ID: {item.id}</p>
-                             <p>Name: {item.name}</p>
-                             <p>Location: {item.location}</p>
-                         </div>
-                     );
-                 })}
-             </div>   
+            <div>
+                <h2>Customers</h2>
+                <div style={{display: "flex", flexFlow: "row wrap", justifyContent: "center"}}>
+                    {this.state.data.length > 0 ? this.renderCustomers() : <p>No Customers</p>}
+                </div>
+            </div>
         );
     }
 }
