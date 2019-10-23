@@ -76,7 +76,7 @@ class Counter extends Component{
                 </div>
 
                 <div>
-                    <button onClick={this.inc}>Increment</button> &nbsp;&nbsp;
+                    <button id="incBtn" onClick={this.inc}>Increment</button> &nbsp;&nbsp;
                     <button onClick={this.decr}>Decrement</button>
                 </div>
 

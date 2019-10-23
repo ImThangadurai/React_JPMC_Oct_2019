@@ -1,0 +1,48 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CounterTests snapshot 1`] = `
+<div>
+  <h3>
+    Counter
+  </h3>
+  <h5>
+    Counter: 
+    0
+  </h5>
+  <div>
+    Count: 
+    <input
+      onChange={[Function]}
+      placeholder="Count"
+      type="number"
+      value={0}
+    />
+  </div>
+  <div>
+    <input
+      placeholder="New Count"
+      type="number"
+    />
+      
+    <button
+      onClick={[Function]}
+    >
+      Set Count
+    </button>
+  </div>
+  <div>
+    <button
+      id="incBtn"
+      onClick={[Function]}
+    >
+      Increment
+    </button>
+       
+    <button
+      onClick={[Function]}
+    >
+      Decrement
+    </button>
+  </div>
+</div>
+`;

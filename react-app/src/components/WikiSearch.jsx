@@ -66,13 +66,11 @@ const WikiSearch = () => {
             <input type="search" placeholder="Search" value={searchKey} onChange={change}/>
             &nbsp;
             <button onClick={invoke}>Search</button>
-
             <div>
                 {renderResults()}
             </div>
         </div>
     );
-
 }
 
 export default simpleHOC(WikiSearch);

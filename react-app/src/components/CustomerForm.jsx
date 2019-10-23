@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import { Customer } from '../model/Customer';
-
+import {withRouter} from 'react-router-dom';
 
 class CustomerForm extends Component{
 
@@ -13,6 +13,7 @@ class CustomerForm extends Component{
         super(props);
 
         console.log("[CustomerForm constructor]")
+        console.log("props of CustomerForm", this.props);
 
         this.initState = this.state;
         if(this.props.customer){
@@ -115,4 +116,4 @@ class CustomerForm extends Component{
 
 }
 
-export default CustomerForm;
+export default withRouter(CustomerForm);

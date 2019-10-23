@@ -3,17 +3,19 @@ import { Customer } from '../model/Customer';
 import './ListCustomers.css';
 import CustomerForm from './CustomerForm';
 import axios from 'axios';
+import {Link} from 'react-router-dom';
 
 class ListCustomers extends PureComponent {
 
     state = {
         data: [],
         addMode: false,
-        selectedCustomer: null
+        selectedCustomer: null,
+        isLoading: false
     }
     constructor(props) {
         super(props);
-
+        console.log("props: ", this.props);
         //Initialize Data
         // this.state.data.push(new Customer(1, "Facebook", "Bangalore"));
         // this.state.data.push(new Customer(2, "Apple", "Bangalore"));
@@ -32,23 +34,32 @@ class ListCustomers extends PureComponent {
 
 
 
-        fetch(this.url)
-            .then((resp) => {
-                return resp.json();
-            })
-            .then((data) => {
-                console.log(data);
-            })
+        // fetch(this.url)
+        //     .then((resp) => {
+        //         return resp.json();
+        //     })
+        //     .then((data) => {
+        //         console.log(data);
+        //     })
 
-        axios.get(this.url)
+        this.setState({
+            isLoading: true
+        }, () => {
+
+            axios.get(this.url)
             .then((resp) => {
                 console.log("success", resp.data);
                 this.setState({
-                    data: resp.data
+                    data: resp.data,
+                    isLoading: false
                 });
             }, (resp) => {
                 console.log("failed", resp);
             })
+
+        })
+
+        
 
 
 
@@ -180,6 +191,8 @@ class ListCustomers extends PureComponent {
                         <a href="#" onClick={(evt) => { this.delete(evt, index) }}>Delete</a>
                         &nbsp;
                         <a href="#" onClick={evt => this.edit(evt, item)}>Edit</a>
+                        &nbsp;
+                        <Link to={"/customers/" + item.id}>Details</Link>
                     </div>
                 </div>
             );
@@ -214,6 +227,8 @@ class ListCustomers extends PureComponent {
                         customer={selectedCustomer}
                         onSave={this.editUpdate}
                         onCancel={() => this.setState({ selectedCustomer: null })} /> : null}
+            
+                {this.state.isLoading? <p>Loading</p>: null}    
             </div>
         );
     }
